@@ -495,7 +495,7 @@ class Line(object):
           :rtype: int:
         """
         # --------------------------------------------------------------
-        # TODO: 8.
+        # DONE: 8.
         #   a. READ the above specification, including the Example.
         #        ** ASK QUESTIONS AS NEEDED. **
         #        ** Be sure you understand it, ESPECIALLY the Example.
@@ -504,7 +504,6 @@ class Line(object):
         #        They include the Example in the above doc-string.
         # --------------------------------------------------------------
         return self.total
-
 
     def line_plus(self, other_line):
         """
@@ -531,7 +530,7 @@ class Line(object):
           :rtype: Line:
         """
         # --------------------------------------------------------------
-        # TODO: 9.
+        # DONE: 9.
         #   a. READ the above specification, including the Example.
         #        ** ASK QUESTIONS AS NEEDED. **
         #        ** Be sure you understand it, ESPECIALLY the Example.
@@ -539,6 +538,11 @@ class Line(object):
         #        The tests are already written (below).
         #        They include the Example in the above doc-string.
         # --------------------------------------------------------------
+        point_sx = self.start.x + other_line.start.x
+        point_sy = self.start.y + other_line.start.y
+        point_ex = self.end.x + other_line.end.x
+        point_ey = self.end.y + other_line.end.y
+        return Line(Point(point_sx, point_sy), Point(point_ex, point_ey))
 
     def line_minus(self, other_line):
         """
@@ -565,7 +569,7 @@ class Line(object):
           :rtype: Line:
         """
         # --------------------------------------------------------------
-        # TODO: 10.
+        # DONE: 10.
         #   a. READ the above specification, including the Example.
         #        ** ASK QUESTIONS AS NEEDED. **
         #        ** Be sure you understand it, ESPECIALLY the Example.
@@ -573,6 +577,11 @@ class Line(object):
         #        The tests are already written (below).
         #        They include the Example in the above doc-string.
         # --------------------------------------------------------------
+        point_sx = self.start.x - other_line.start.x
+        point_sy = self.start.y - other_line.start.y
+        point_ex = self.end.x - other_line.end.x
+        point_ey = self.end.y - other_line.end.y
+        return Line(Point(point_sx, point_sy), Point(point_ex, point_ey))
 
     def midpoint(self):
         """
@@ -592,7 +601,7 @@ class Line(object):
           :rtype: Point
         """
         # --------------------------------------------------------------
-        # TODO: 11.
+        # DONE: 11.
         #   a. READ the above specification, including the Example.
         #        ** ASK QUESTIONS AS NEEDED. **
         #        ** Be sure you understand it, ESPECIALLY the Example.
@@ -600,6 +609,9 @@ class Line(object):
         #        The tests are already written (below).
         #        They include the Example in the above doc-string.
         # --------------------------------------------------------------
+        point_mx = (self.start.x + self.end.x) / 2
+        point_my = (self.start.y + self.end.y) / 2
+        return Point(point_mx, point_my)
 
     def is_parallel(self, line2):
         """
@@ -662,6 +674,28 @@ class Line(object):
         # and (usually) adequate to distinguish numbers that really
         # are different from each other.
         ################################################################
+        x12 = line2.start.x
+        x22 = line2.end.x
+        y12 = line2.start.y
+        y22 = line2.end.y
+        if (x22 - x12) == 0:
+            slope2 = math.inf
+        else:
+            slope2 = (y22 - y12) / (x22 - x12)
+        x1 = self.start.x
+        x2 = self.end.x
+        y1 = self.start.y
+        y2 = self.end.y
+        if (x2 - x1) == 0:
+            slope = math.inf
+        else:
+            slope = (y2 - y1) / (x2 - x1)
+        if self == line2:
+            return True
+        if slope == slope2:
+            return True
+        else:
+            return False
 
     def reset(self):
         """

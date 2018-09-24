@@ -2,8 +2,8 @@
 A   Baby   class and methods that use the Baby class.
 
 Authors: David Mutchler, Vibha Alangar, Dave Fisher, Amanda Stouder,
-         their colleagues and PUT_YOUR_NAME_HERE.
-"""  # TODO: 1. PUT YOUR NAME IN THE ABOVE LINE.
+         their colleagues and Jacob Bowman.
+"""  # DONE: 1. PUT YOUR NAME IN THE ABOVE LINE.
 
 
 def main():
@@ -93,7 +93,6 @@ def main():
 #          """ Brief description of what objects of the class 'are'. """
 #
 ########################################################################
-
 
 # ----------------------------------------------------------------------
 # If this module is running at the top level (as opposed to being
