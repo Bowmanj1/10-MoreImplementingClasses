@@ -690,8 +690,6 @@ class Line(object):
             slope = math.inf
         else:
             slope = (y2 - y1) / (x2 - x1)
-        if self == line2:
-            return True
         if slope == slope2:
             return True
         else:
